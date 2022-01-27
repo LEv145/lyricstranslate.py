@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "lyricstranslate.py"
+version = "0.1.0"
+description = ""
+authors = ["LEv145 <levxxx03@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+poethepoet = "^0.12.2"
+mkinit = "^0.3.4"
+black = "^21.12b0"
+pyperclip = "^1.8.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
