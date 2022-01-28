@@ -8,6 +8,7 @@ authors = ["LEv145 <levxxx03@gmail.com>"]
 python = "^3.9"
 aiohttp = "^3.8.1"
 mypy = "^0.931"
+injector = "^0.19.0"
 
 [tool.poetry.dev-dependencies]
 poethepoet = "^0.12.2"

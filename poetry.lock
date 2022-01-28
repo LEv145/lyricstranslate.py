@@ -124,6 +124,17 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "injector"
+version = "0.19.0"
+description = "Injector - Python dependency injection framework, inspired by Guice"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["pytest", "pytest-cov (>=2.5.1)", "check-manifest", "mypy", "black", "dataclasses"]
+
+[[package]]
 name = "jaraco.classes"
 version = "3.2.1"
 description = "Utility functions for Python class constructs"
@@ -453,7 +464,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "c8159dbc209719c47fd8620218e9494834e324a1c1acaaaa2938724dfc98dc93"
+content-hash = "58185e9a32d5958c0961a4662ca5efc41464f79ba6bff10db2c22ea0bd1e7825"
 
 [metadata.files]
 aiohttp = [
@@ -622,6 +633,10 @@ frozenlist = [
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
+]
+injector = [
+    {file = "injector-0.19.0-py2.py3-none-any.whl", hash = "sha256:2e5f5629d9c42f8ed8a3f8a5b4e9dc8ac80547cd95c7ce0bd0fc3f4baae6bc77"},
+    {file = "injector-0.19.0.tar.gz", hash = "sha256:3eaaf51cd3ba7be1354d92a5210c8bba43dd324300eafd214e1f2568834a912f"},
 ]
 "jaraco.classes" = [
     {file = "jaraco.classes-3.2.1-py3-none-any.whl", hash = "sha256:22ac35313cf4b145bf7b217cc51be2d98a3d2db1c8558a30ca259d9f0b9c0b7d"},
