@@ -2,7 +2,10 @@
 name = "lyricstranslate.py"
 version = "0.1.0"
 description = ""
-authors = ["LEv145 <levxxx03@gmail.com>"]
+authors = ["LEv145"]
+packages = [
+    {include="lyricstranslate"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
