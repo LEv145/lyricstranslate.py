@@ -6,12 +6,11 @@ from typing import (
 )
 from contextlib import asynccontextmanager
 
+from lyricstranslate.constants import BASE_URL
+
 
 if TYPE_CHECKING:
     from aiohttp import ClientSession, ClientResponse
-
-
-BASE_URL = "https://lyricstranslate.com"
 
 
 class LyricsTranslateAPI():
@@ -29,12 +28,12 @@ class LyricsTranslateAPI():
                 "query": query.lower()
             },
         ) as response:
-            text: str = await response.text()
+            text = await response.text()
 
         return text
 
     async def get_song_by_url(self, url: str) -> str:
-        async with self._request(url=url) as response:
+        async with self._request("GET", url=url) as response:
             text: str = await response.text()
 
         return text
