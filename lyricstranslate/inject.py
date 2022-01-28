@@ -9,7 +9,7 @@ from .client import LyricsTranslateClient
 from .converter import Converter
 
 
-class ClientModule(Module):
+class LyricsTranslateModule(Module):
     """Module for automatic dependencies."""
 
     @provider

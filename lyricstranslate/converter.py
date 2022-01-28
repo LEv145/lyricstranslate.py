@@ -18,13 +18,14 @@ class Converter():
     def convert_search_response(self, raw_data: str) -> List[Suggestion]:
         json_data = json.loads(raw_data[11:])
 
+        # noinspection PyProtectedMember
         return [
             Suggestion(
                 category=(
                     Category(category_raw_data)
                     if (
                         category_raw_data := raw_suggestion["data"]["category"]
-                    ) in Category.__members__
+                    ) in Category._value2member_map_
                     else Category.UNKNOWN
                 ),
                 name=raw_suggestion["value"],
