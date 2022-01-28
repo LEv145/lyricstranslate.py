@@ -29,7 +29,7 @@ class Converter():
                     else Category.UNKNOWN
                 ),
                 name=raw_suggestion["value"],
-                url=f'{BASE_URL}raw_suggestion["data"]["url"]',
+                url=f'{BASE_URL}{raw_suggestion["data"]["url"]}',
             )
             for raw_suggestion in json_data["suggestions"]
         ]
