@@ -11,7 +11,7 @@ from .converter import (
     Converter,
 )
 from .inject import (
-    ClientModule,
+    LyricsTranslateModule,
 )
 from .models import (
     Category,
@@ -22,10 +22,10 @@ from .models import (
 __all__ = [
     "BASE_URL",
     "Category",
-    "ClientModule",
     "Converter",
     "LyricsTranslateAPI",
     "LyricsTranslateClient",
+    "LyricsTranslateModule",
     "Suggestion",
     "TrackHTMLResult",
 ]
