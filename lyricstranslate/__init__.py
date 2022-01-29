@@ -8,6 +8,7 @@ from .constants import (
     BASE_URL,
 )
 from .converter import (
+    BeautifulSoupParserError,
     Converter,
 )
 from .inject import (
@@ -21,6 +22,7 @@ from .models import (
 
 __all__ = [
     "BASE_URL",
+    "BeautifulSoupParserError",
     "Category",
     "Converter",
     "LyricsTranslateAPI",
