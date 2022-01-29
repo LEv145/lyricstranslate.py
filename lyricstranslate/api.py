@@ -1,3 +1,4 @@
+import re
 from typing import (
     TYPE_CHECKING,
     AsyncIterator,
@@ -32,6 +33,9 @@ class LyricsTranslateAPI():
         return text
 
     async def get_song_by_url(self, url: str) -> str:
+        if re.match(r'^https?://lyricstranslate\.com/.+$', url) is None:
+            raise ValueError("Invalid url")
+
         async with self._request("GET", url=url) as response:
             text: str = await response.text()
 
