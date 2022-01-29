@@ -7,6 +7,7 @@ from typing import (
 from bs4 import BeautifulSoup
 
 from lyricstranslate.constants import BASE_URL
+from .beautiful_soup import assert_find
 from .models import (
     Suggestion,
     Category,
@@ -36,36 +37,20 @@ class Converter():
         ]
 
     def convert_song_html_response(self, raw_data: str) -> TrackHTMLResult:
-        soup = BeautifulSoup(raw_data, "lxml")  # TODO: Beautiful soup assert parser
+        soup = BeautifulSoup(raw_data, "lxml")
 
-        node_tag = soup.find("div", class_="node")
-        if node_tag is None:
-            raise BeautifulSoupParserError("Node tag not found")
-
-        try:
-            node_id = node_tag["id"]
-        except KeyError:
-            raise BeautifulSoupParserError("Node tag hasn't attribute id")
+        node_tag = assert_find(soup, "div", class_="node")
+        node_id = node_tag["id"]
 
         track_id_match = re.match(r'node-(\d+)', node_id)
         if track_id_match is None:
-            raise BeautifulSoupParserError("Track id not matched")
+            raise ValueError("Track ID not matched")  # TODO?: Another error
 
         track_id = track_id_match.group(1)
-
-        track_title_tag = soup.find("h2", class_="title-h2")
-        if track_title_tag is None:
-            raise BeautifulSoupParserError("Title tag not found")
-
-        track_title = track_title_tag.text.strip()
-
-        ltf_tag = soup.find("div", class_="ltf")
-        if ltf_tag is None:
-            raise BeautifulSoupParserError("Ltf tag not found")
-
+        track_title = assert_find(soup, "h2", class_="title-h2").text.strip()
         track_lyrics = [
             part.text
-            for part in ltf_tag.find_all("div", class_="par")
+            for part in assert_find(soup, "div", class_="ltf").find_all("div", class_="par")
         ]
 
         return TrackHTMLResult(
@@ -73,7 +58,3 @@ class Converter():
             title=track_title,
             lyrics=track_lyrics,
         )
-
-
-class BeautifulSoupParserError(Exception):  # This error should be in BeautifulSoup
-    """Error if parsed data is not valid."""

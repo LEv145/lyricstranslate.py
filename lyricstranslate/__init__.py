@@ -1,6 +1,10 @@
 from .api import (
     LyricsTranslateAPI,
 )
+from .beautiful_soup import (
+    BeautifulSoupParserError,
+    assert_find,
+)
 from .client import (
     LyricsTranslateClient,
 )
@@ -8,7 +12,6 @@ from .constants import (
     BASE_URL,
 )
 from .converter import (
-    BeautifulSoupParserError,
     Converter,
 )
 from .inject import (
@@ -30,4 +33,5 @@ __all__ = [
     "LyricsTranslateModule",
     "Suggestion",
     "TrackHTMLResult",
+    "assert_find",
 ]
