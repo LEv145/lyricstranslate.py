@@ -6,6 +6,7 @@ from lyricstranslate.converter import (
     Suggestion,
     TrackHTMLResult,
 )
+from lyricstranslate.beautiful_soup import BeautifulSoupParserError
 
 
 class TestConverter(TestCase):
@@ -31,7 +32,7 @@ class TestConverter(TestCase):
         result = self.converter.convert_song_html_response(raw_data)
         self.assertIsInstance(result, TrackHTMLResult)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(BeautifulSoupParserError):
             self.converter.convert_song_html_response(
                 "<!DOCTYPE html>\n"
                 "<html>\n"
